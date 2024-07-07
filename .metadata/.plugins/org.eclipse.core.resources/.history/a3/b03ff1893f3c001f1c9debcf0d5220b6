@@ -1,0 +1,52 @@
+package io.bforbank.cagnotte;
+
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
+public class Cagnotte {
+
+    @NotNull
+    private String clientId;
+
+    @Min(0)
+    private double totalAmount;
+
+    @Min(0)
+    private int transactionCount;
+
+    public Cagnotte() {}
+
+    public Cagnotte(String clientId, double totalAmount, int transactionCount) {
+        this.clientId = clientId;
+        this.totalAmount = totalAmount;
+        this.transactionCount = transactionCount;
+    }
+
+    public String getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
+
+    public double getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(double totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
+    public int getTransactionCount() {
+        return transactionCount;
+    }
+
+    public void setTransactionCount(int transactionCount) {
+        this.transactionCount = transactionCount;
+    }
+
+    public boolean isAvailable() {
+        return transactionCount >= 3 && totalAmount >= 10;
+    }
+}

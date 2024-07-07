@@ -1,0 +1,25 @@
+package io.javabrains.bforbank.hello;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Value;
+
+@RestController
+public class HelloController {
+	
+		@RequestMapping ("/hello")
+		public String sayhey() {
+			return "Hi";
+		}	
+		
+		 @Value("${server.port}")
+		    private String serverPort;
+
+		    public void checkPort() {
+		        System.out.println("Server port: " + serverPort);
+		    }
+
+ 
+}
+
+
